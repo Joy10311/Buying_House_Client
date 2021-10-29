@@ -6,6 +6,7 @@ const Tours = () => {
     const [services] = useServices([]);
 
     return (
+
         <div className="grid lg:grid-cols-3">
 
             {
@@ -15,6 +16,7 @@ const Tours = () => {
                 ></SetTours>)
             }
         </div>
+
     );
 };
 
