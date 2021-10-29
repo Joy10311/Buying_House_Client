@@ -7,5 +7,4 @@ const initializeAuthentication = () => {
 }
 
 
-
 export default initializeAuthentication;
