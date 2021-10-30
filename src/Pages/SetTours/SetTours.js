@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const SetTours = ({ serv }) => {
-    const { title, price, available, img, description, guide } = serv;
+    const { _id, title, price, available, img, description, guide } = serv;
+
     return (
         <div>
 
@@ -14,7 +16,7 @@ const SetTours = ({ serv }) => {
                     <h5 className="font-bold text-red-700 text-center text-2xl ">Guide: {guide}</h5>
                     <h5 className="font-semibold text-center text-xl">Available Seat: {available}</h5>
                     <h5 className="font-semibold text-center text-xl">Price: {price}$</h5>
-                    <Link to=""><button className="bg-blue-700 text-white rounded-lg mt-3 lg:ml-44 ml-20  p-3 mb-3">Get This Service</button></Link>
+                    <Link to={`/getservices/${_id}`}><button className="bg-blue-700 text-white rounded-lg mt-3 lg:ml-44 ml-20  p-3 mb-3">Get This Service</button></Link>
                 </div>
             </div>
         </div>

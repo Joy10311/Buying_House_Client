@@ -9,15 +9,25 @@ import reviewer from '../../../images/player-1.png'
 import reviewer2 from '../../../images/player-2.png'
 import reviewer3 from '../../../images/player-3.png'
 import Services from '../../Services/Services';
+import useAuth from '../../../Hooks/UseAuth/UseAuth';
 
 
 const Home = () => {
+    const { isLoading } = useAuth();
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('https://guarded-reaches-63811.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data));
     }, []);
+
+    if (isLoading) {
+        return <div class="flex justify-center items-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500">
+
+            </div>
+        </div>
+    }
     return (
         <div>
 
@@ -25,13 +35,13 @@ const Home = () => {
                 <h2 className="text-7xl pt-3 lg:ml-60 ml-10 font-bold">Explore <br /> Your Travel</h2>
                 <h1 className="text-4xl pt-20 pb-3 ml-10">Discover your next great adventure, become an explorer to get started!</h1>
                 <p className="text-6xl ml-10 pt-20">World Best <br /> Travel Agency Company <br /> Since 2008.</p>
-                <Link to="/"> <button className="bg-yellow-700 text-white rounded-lg mt-20 lg:ml-44 ml-10  p-3 mb-3">Click To See Our Doctors</button></Link>
+                <Link to="/guides"> <button className="bg-yellow-700 text-white rounded-lg mt-20 lg:ml-44 ml-10  p-3 mb-3">Click To See Our Guides</button></Link>
             </div>
 
             {/* services  */}
             <div className="grid lg:grid-cols-3">
                 {
-                    services.slice(0, 3).map(service => <Services
+                    services.map(service => <Services
                         key={service._id}
                         service={service}
                     ></Services>)

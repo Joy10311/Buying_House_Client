@@ -11,6 +11,11 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Footer from './Pages/Shared/Footer/Footer';
 import Tours from './Pages/Tours/Tours';
 import AddService from './Pages/AddService/AddService';
+import Getservices from './Pages/GetServices/Getservices';
+import MyOrder from './Pages/User/MyOrder/MyOrder';
+import NotFound from './Pages/NotFound/NotFound';
+import ManageAllOrders from './Pages/User/ManageAllOrders/ManageAllOrders';
+import AddNewService from './Pages/User/AddNewService/AddNewService';
 
 function App() {
   return (
@@ -19,29 +24,44 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
-            <Route path="/home">
+            <Route exact path="/home">
               <Home></Home>
             </Route>
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route path="/tours">
+            <Route exact path="/tours">
               <Tours></Tours>
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <LogIn></LogIn>
             </Route>
-            <Route path="/about">
+            <Route exact path="/about">
               <About></About>
             </Route>
-            <Route path="/contact">
+            <Route exact path="/contact">
               <Contact></Contact>
             </Route>
-            <Route path="/guides">
+            <Route exact path="/guides">
               <Guides></Guides>
             </Route>
-            <Route path="/addservice">
+            <PrivateRoute exact path="/getservices/:serviceId">
+              <Getservices></Getservices>
+            </PrivateRoute>
+            <PrivateRoute exact path="/myOrder">
+              <MyOrder></MyOrder>
+            </PrivateRoute>
+            <PrivateRoute exact path="/allOrders">
+              <ManageAllOrders></ManageAllOrders>
+            </PrivateRoute>
+            <PrivateRoute exact path="/addnew">
+              <AddNewService></AddNewService>
+            </PrivateRoute>
+            <Route exact path="/addservice">
               <AddService></AddService>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>
