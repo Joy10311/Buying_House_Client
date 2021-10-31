@@ -7,7 +7,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([])
     const email = user.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${email}`)
+        fetch(`https://guarded-reaches-63811.herokuapp.com/processOrders/${email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -26,6 +26,7 @@ const MyOrder = () => {
             }
         </div>
     );
+
 };
 
 export default MyOrder;

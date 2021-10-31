@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 // import { useForm } from 'react-hook-form';
@@ -17,20 +18,34 @@ const Getservices = () => {
 
 
     const handleClick = () => {
-        const myCart = service;
-        myCart.email = `${user.email}`
-        // console.log(myCart);
-        fetch('https://guarded-reaches-63811.herokuapp.com/processOrders', {
+
+        service.email = `${user?.email}`
+        delete service._id
+        fetch('http://localhost:5000/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(myCart)
+            body: JSON.stringify(service)
         })
             .then(res => res.json())
             .then(result => console.log(result))
     }
 
+    // const handleClick = () => {
+
+    //     service.email = `${user?.email}`
+    //     delete service._id
+    //     fetch('http://localhost:5000/orders', {
+    //         method: "POST",
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(service)
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => console.log(result))
+    // }
 
 
     return (

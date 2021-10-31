@@ -5,7 +5,7 @@ import logo from '../../../images/logo@2x_white.png'
 const Footer = () => {
     return (
 
-        <div className="bg-black   text-white">
+        <div className="bg-black   text-white lg:mt-32">
             <div className="grid lg:grid-cols-3 pl-10">
 
                 <div className=" pt-5 font-semibold ">
