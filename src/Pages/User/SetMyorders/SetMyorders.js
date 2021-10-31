@@ -14,6 +14,9 @@ const SetMyorders = ({ orders }) => {
                     if (data.deletedCount > 0) {
                         window.alert('Deleted Successfully')
                     }
+
+                    console.log(data)
+                    window.location.reload(false);
                 })
         }
 

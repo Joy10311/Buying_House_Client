@@ -21,7 +21,7 @@ const Getservices = () => {
 
         service.email = `${user?.email}`
         delete service._id
-        fetch('http://localhost:5000/orders', {
+        fetch('https://guarded-reaches-63811.herokuapp.com/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +29,11 @@ const Getservices = () => {
             body: JSON.stringify(service)
         })
             .then(res => res.json())
-            .then(result => console.log(result))
+            .then(result => {
+                if (result.acknowledged) {
+                    window.alert("Added Successfully")
+                }
+            })
     }
 
     // const handleClick = () => {
