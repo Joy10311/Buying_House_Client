@@ -11,7 +11,8 @@ const ManageAllOrders = () => {
     }, [])
     return (
         <div>
-            <h2>manage all order{manages.length}</h2>
+            <h2 className="font-bold text-3xl text-center text-gray-600"> All Bookig is Here</h2>
+            <h4 className="font-bold text-3xl text-center text-red-600 pb-10">Currently Booked:{manages.length}</h4>
             {
                 manages.map(manage => <SetManageAllOrders
                     key={manage._id}

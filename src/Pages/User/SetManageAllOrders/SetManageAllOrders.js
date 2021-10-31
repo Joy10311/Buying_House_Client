@@ -3,6 +3,30 @@ import React from 'react';
 const SetManageAllOrders = ({ manage }) => {
     const { img, title, price } = manage;
 
+
+
+    const handleDelete = id => {
+        const proceed = window.confirm("Are You Sure? Want to delete")
+        if (proceed) {
+            fetch(`https://guarded-reaches-63811.herokuapp.com/processOrders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        window.alert('Deleted Successfully')
+                    }
+
+                    console.log(data)
+                    window.location.reload(false);
+                })
+        }
+
+
+    }
+
+
+
     return (
         <div>
             <div className="grid lg:grid-cols-3 py-20 lg:pl-20 px-20">
@@ -15,7 +39,7 @@ const SetManageAllOrders = ({ manage }) => {
                     <h5 className="font-semibold lg:text-center text-xl">Price: {price}$</h5>
                 </div>
                 <div>
-                    <button className="bg-red-700 text-white rounded-lg   p-3 px-5 lg:mx-5 mr-2 ">Delete</button>
+                    <button onClick={() => handleDelete(manage._id)} className="bg-red-700 text-white rounded-lg   p-3 px-5 lg:mx-5 mr-2 ">Delete</button>
                     <button className="bg-blue-700 text-white rounded-lg   p-3 px-5 ">Process</button>
 
                 </div>
