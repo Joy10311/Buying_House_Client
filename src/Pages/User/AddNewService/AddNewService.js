@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 const AddNewService = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
         axios.post('https://guarded-reaches-63811.herokuapp.com/services', data)
             .then(res => {
                 if (res.data.insertedId) {
