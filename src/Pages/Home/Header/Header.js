@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/UseAuth/UseAuth';
-import logo from '../../../images/logo@2x_white.png'
+import logo from '../../../images/logo-3.webp'
 
 const Header = () => {
     const { user, logOut, } = useAuth();
     return (
         <div>
-            <nav className="bg-green-600 text-white  text-xl font-medium ">
-                <Link to="/home"><img className="pt-5" src={logo} alt="" /></Link>
+            <nav className="bg-gray-600 text-white  text-xl font-medium ">
+                <Link to="/home"><img className="bg-white px-2 pt-3 ml-2" src={logo} alt="" /></Link>
                 <div className="mb-10  text-center pb-7 pt-5">
                     <Link className="mx-10 lg:inline block" to="/home">Home</Link>
-                    <Link className="mx-10 lg:inline block" to="/tours">Tours</Link>
-                    <Link className="mx-10 lg:inline block" to="/guides">Guides</Link>
+                    <Link className="mx-10 lg:inline block" to="/property">Property</Link>
+                   
                     {user?.email ?
                         <Link className="mx-10 lg:inline block" to="/myOrder">My Order</Link>
                         : ''

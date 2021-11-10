@@ -2,20 +2,18 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
 import About from './Pages/About/About';
-import Guides from './Pages/Guides/Guides';
-import Contact from './Pages/Contact/Contact';
 import Header from './Pages/Home/Header/Header';
 import Home from './Pages/Home/Home/Home';
 import LogIn from './Pages/LogIn/LogIn';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Footer from './Pages/Shared/Footer/Footer';
-import Tours from './Pages/Tours/Tours';
-import AddService from './Pages/AddService/AddService';
-import Getservices from './Pages/GetServices/Getservices';
 import MyOrder from './Pages/User/MyOrder/MyOrder';
 import NotFound from './Pages/NotFound/NotFound';
+import Property from './Pages/Property/Property/Property'
 import ManageAllOrders from './Pages/User/ManageAllOrders/ManageAllOrders';
 import AddNewService from './Pages/User/AddNewService/AddNewService';
+import PropertyDetails from './Pages/Property/PropertyDetails/PropertyDetails';
+
 
 function App() {
   return (
@@ -30,8 +28,8 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route exact path="/tours">
-              <Tours></Tours>
+            <Route exact path="/property">
+             <Property></Property>
             </Route>
             <Route exact path="/login">
               <LogIn></LogIn>
@@ -39,14 +37,8 @@ function App() {
             <Route exact path="/about">
               <About></About>
             </Route>
-            <Route exact path="/contact">
-              <Contact></Contact>
-            </Route>
-            <Route exact path="/guides">
-              <Guides></Guides>
-            </Route>
-            <PrivateRoute exact path="/getservices/:serviceId">
-              <Getservices></Getservices>
+            <PrivateRoute exact path="/properties/:serviceId">
+              <PropertyDetails></PropertyDetails>
             </PrivateRoute>
             <PrivateRoute exact path="/myOrder">
               <MyOrder></MyOrder>
@@ -57,9 +49,6 @@ function App() {
             <PrivateRoute exact path="/addnew">
               <AddNewService></AddNewService>
             </PrivateRoute>
-            <Route exact path="/addservice">
-              <AddService></AddService>
-            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../images/logo@2x_white.png'
+import logo from '../../../images/logo-3.webp'
 
 const Footer = () => {
     return (
@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="grid lg:grid-cols-3 pl-10">
 
                 <div className=" pt-5 font-semibold ">
-                    <Link to="/home"> <img src={logo} alt="" /> </Link>
+                    <Link to="/home"> <img className="bg-white px-2" src={logo} alt="" /> </Link>
                     <p className="pt-5">London is a megalopolis of people, ideas and frenetic energy. The capital and largest city of the United Kingdom</p>
 
                 </div>
@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <p className="text-center">Copyright © 2016 - 2019. G-TOUR rights reserved</p>
+            <p className="text-center">Copyright © 2016 - 2021. AMULI rights reserved</p>
         </div>
 
     );
