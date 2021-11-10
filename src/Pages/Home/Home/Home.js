@@ -7,6 +7,7 @@ import logo3 from '../../../images/news-3.jpg'
 import logo4 from '../../../images/news-4.jpg'
 import useAuth from '../../../Hooks/UseAuth/UseAuth';
 import Properties from '../Properties/Properties';
+import ShowReview from '../ShowReview/ShowReview';
 
 
 const Home = () => {
@@ -75,7 +76,9 @@ const Home = () => {
 
                     {/* ratings */}
 
-                    <div></div>
+                    <div>
+                        <ShowReview></ShowReview>
+                    </div>
 
         </div>
     );

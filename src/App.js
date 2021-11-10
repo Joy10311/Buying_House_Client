@@ -13,6 +13,7 @@ import Property from './Pages/Property/Property/Property'
 import ManageAllOrders from './Pages/User/ManageAllOrders/ManageAllOrders';
 import AddNewService from './Pages/User/AddNewService/AddNewService';
 import PropertyDetails from './Pages/Property/PropertyDetails/PropertyDetails';
+import Review from './Pages/Home/Review/Review';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route exact path="/property">
              <Property></Property>
+            </Route>
+            <Route exact path="/review">
+             <Review></Review>
             </Route>
             <Route exact path="/login">
               <LogIn></LogIn>
