@@ -1,11 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCoEbPhix4PdjeM1vs0AbjO4kWYN0d-CmI",
-    authDomain: "g-tour-1abb5.firebaseapp.com",
-    projectId: "g-tour-1abb5",
-    storageBucket: "g-tour-1abb5.appspot.com",
-    messagingSenderId: "477260168429",
-    appId: "1:477260168429:web:e66a8eba88864055f860e4"
-};
+    apiKey: "AIzaSyCohsD8FjrPESJmrtCKEDNsV-ZXdVivBUg",
+    authDomain: "buying-house-6d184.firebaseapp.com",
+    projectId: "buying-house-6d184",
+    storageBucket: "buying-house-6d184.appspot.com",
+    messagingSenderId: "936266603064",
+    appId: "1:936266603064:web:283f35439e0740448024cd"
+  };
 
 
 export default firebaseConfig;

@@ -14,6 +14,7 @@ import ManageAllOrders from './Pages/User/ManageAllOrders/ManageAllOrders';
 import AddNewService from './Pages/User/AddNewService/AddNewService';
 import PropertyDetails from './Pages/Property/PropertyDetails/PropertyDetails';
 import Review from './Pages/Home/Review/Review';
+import Register from './Register/Register';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <LogIn></LogIn>
+            </Route>
+            <Route exact path="/register">
+              <Register></Register>
             </Route>
             <Route exact path="/about">
               <About></About>

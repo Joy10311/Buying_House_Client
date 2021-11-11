@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../../../Hooks/UseAuth/UseAuth';
 
@@ -6,12 +6,56 @@ const PropertyDetails = () => {
     const { user } = useAuth();
     const { serviceId } = useParams();
     const [property, setProperty] = useState([]);
-
+ 
+ 
+// load single data
     useEffect(() => {
         fetch(`http://localhost:5000/properties/${serviceId}`)
             .then(res => res.json())
             .then(data => setProperty(data))
     }, []);
+
+
+
+    // send data and email
+
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const numberRef = useRef();
+    const addressRef = useRef();
+
+
+    const handleClick = (e) => {
+        e.preventDefault();
+
+        const userName = (nameRef.current.value);
+        const email = (emailRef.current.value);
+        let number = (numberRef.current.value);
+        let address = (addressRef.current.value);
+
+
+        const userInfo = {userName: userName, email:email,number:number,address:address};
+
+        const newData = {...property,...userInfo}
+        delete newData?._id;
+        
+        // data.status = "pending";
+        fetch("http://localhost:5000/addOrders", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(newData),
+        })
+          .then((res) => res.json())
+          .then((result) =>{
+              if(result.acknowledged){
+                  window.alert('Congratulation! you order confirmed ')
+              }
+          } );
+        
+      };
+
+
+
     return (
         <div className="grid lg:grid-cols-2">
         <div>
@@ -29,17 +73,51 @@ const PropertyDetails = () => {
             
         </div>
         <div className=" pt-44">
-            <h2 className="text-6xl font-semibold ml-20 mb-10 text-red-600">Please Checkout <br /> By clicking Confirm</h2>
+            <h2 className="text-4xl font-semibold text-center mb-10 text-red-600">Please Checkout <br /> By Submit form</h2>
 
-            {/* <div className="pb-40 grid justify-center align-center">
-                <form >
-                    <input className="border border-red-800 block mt-2 pt-2 pb-2 px-20"{...register("firstName", { required: true, maxLength: 20 })} placeholder="Name" />
-                    <input className="border border-red-800 block mt-2 pt-2 pb-2 px-20" {...register("email")} placeholder="Email" />
-                    <input className="border border-red-800 block mt-2 pt-2 pb-2 px-20" type="number" {...register("phone", { min: 18, max: 99 })} placeholder="Phone" />
-                    <input type="submit" />
-                </form>
-            </div> */}
-            <button  className="bg-blue-700 text-white rounded-lg mt-3 ml-44   p-3 mb-3">Confirm</button>
+            <div className=" grid justify-center align-center">
+            <form onSubmit={handleClick}>
+              <input
+                ref={nameRef}
+                type="text"
+                placeholder="Name"
+                defaultValue={user?.displayName}
+                required
+                className="border border-red-800 block mt-2 pt-2 pb-2 px-20"
+              />
+              <input
+                ref={emailRef}
+                type="email"
+                placeholder="Email"
+                value={user?.email}
+                required
+                className="border border-red-800 block mt-2 pt-2 pb-2 px-20"
+              />
+              <input
+                ref={numberRef}
+                type="number"
+                placeholder="Contact Number"
+                required
+                className="border border-red-800 block mt-2 pt-2 pb-2 px-20"
+              />
+              <input
+                ref={addressRef}
+                type="text"
+                placeholder="Address"
+                
+                className="border border-red-800 block mt-2 pt-2 pb-2 px-20"
+              />
+
+                           
+              <br />
+
+              <input
+                type="submit"
+                value="Order now"
+                className=" bg-red-800 text-white block mt-2 pt-2 pb-2 px-10"
+              />
+            </form>
+            </div>
         </div>
     </div>
     );
