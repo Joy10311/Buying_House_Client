@@ -1,24 +1,30 @@
-import React from 'react';
+import React,{useState} from 'react';
+import useAuth from '../../../Hooks/UseAuth/UseAuth';
 
 const SetManageAllOrders = ({ manage }) => {
+    const {isLoading} = useAuth();
     const { img, title, price } = manage;
+   
+    
 
 
 
     const handleDelete = id => {
+        
         const proceed = window.confirm("Are You Sure? Want to delete")
         if (proceed) {
-            fetch(`https://guarded-reaches-63811.herokuapp.com/processOrders/${id}`, {
+            fetch(`http://localhost:5000/processOrders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
                         window.alert('Deleted Successfully')
+                       
                     }
-
-                    console.log(data)
                     window.location.reload(false);
+                    console.log(data)
+                    
                 })
         }
 

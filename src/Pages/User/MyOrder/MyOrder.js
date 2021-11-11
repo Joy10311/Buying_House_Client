@@ -5,9 +5,10 @@ import SetMyorders from '../SetMyorders/SetMyorders';
 const MyOrder = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([])
-    const email = user.email;
+    const email = user?.email;
+
     useEffect(() => {
-        fetch(`https://guarded-reaches-63811.herokuapp.com/processOrders/${email}`)
+        fetch(`http://localhost:5000/processOrders/${email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -17,7 +18,7 @@ const MyOrder = () => {
     return (
         <div>
             <h2 className="font-bold text-3xl text-center text-gray-600">Your All Bookig is Here</h2>
-            <h4 className="font-bold text-3xl text-center text-red-600 pb-10">Currently Booked {orders.length}</h4>
+            <h4 className="font-bold text-3xl text-center text-red-600 pb-10">Currently Booked:   {orders.length} </h4>
             {
                 orders.map(orders => <SetMyorders
                     key={orders._id}

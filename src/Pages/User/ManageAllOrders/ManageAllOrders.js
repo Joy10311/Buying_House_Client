@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [manages, setManages] = useState([])
 
     useEffect(() => {
-        fetch('https://guarded-reaches-63811.herokuapp.com/processOrders')
+        fetch('http://localhost:5000/processOrders')
             .then(res => res.json())
             .then(data => setManages(data))
     }, [])
