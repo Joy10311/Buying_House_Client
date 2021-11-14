@@ -6,6 +6,7 @@ const MakeAdmin = () => {
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
+        
     }
         const handleSubmit = e => {
             e.preventDefault()

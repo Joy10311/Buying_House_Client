@@ -4,6 +4,7 @@ import SetManageAllOrders from '../SetManageAllOrders/SetManageAllOrders';
 const ManageAllOrders = () => {
     const [manages, setManages] = useState([])
 
+
     useEffect(() => {
         fetch('https://sheltered-sea-70251.herokuapp.com/processOrders')
             .then(res => res.json())
