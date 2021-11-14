@@ -15,6 +15,8 @@ import AddNewService from './Pages/User/AddNewService/AddNewService';
 import PropertyDetails from './Pages/Property/PropertyDetails/PropertyDetails';
 import Review from './Pages/Home/Review/Review';
 import Register from './Register/Register';
+import Dashboard from './Dashboard/Dashboard';
+import ManageProperty from './Pages/User/ManageProperty/ManageProperty';
 
 
 function App() {
@@ -24,38 +26,29 @@ function App() {
         <Router>
           <Header></Header>
           <Switch>
-            <Route exact path="/home">
+            <Route  path="/home">
               <Home></Home>
             </Route>
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route exact path="/property">
+            <Route  path="/property">
              <Property></Property>
             </Route>
-            <Route exact path="/review">
-             <Review></Review>
-            </Route>
-            <Route exact path="/login">
+            <Route  path="/login">
               <LogIn></LogIn>
             </Route>
-            <Route exact path="/register">
+            <Route  path="/register">
               <Register></Register>
             </Route>
-            <Route exact path="/about">
+            <Route  path="/about">
               <About></About>
             </Route>
-            <PrivateRoute exact path="/properties/:serviceId">
+            <PrivateRoute  path="/properties/:serviceId">
               <PropertyDetails></PropertyDetails>
             </PrivateRoute>
-            <PrivateRoute exact path="/myOrder">
-              <MyOrder></MyOrder>
-            </PrivateRoute>
-            <PrivateRoute exact path="/allOrders">
-              <ManageAllOrders></ManageAllOrders>
-            </PrivateRoute>
-            <PrivateRoute exact path="/addnew">
-              <AddNewService></AddNewService>
+            <PrivateRoute  path="/dashboard">
+              <Dashboard></Dashboard>
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

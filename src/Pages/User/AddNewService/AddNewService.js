@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 const AddNewService = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/properties', data)
+        axios.post('https://sheltered-sea-70251.herokuapp.com/properties', data)
             .then(res => {
                 console.log(data)
                 if (res.data.insertedId) {

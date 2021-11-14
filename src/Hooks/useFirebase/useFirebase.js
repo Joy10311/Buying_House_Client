@@ -12,6 +12,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
 
 
@@ -35,9 +36,9 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    // const handleNameChange = e => {
-    //     setName(e.target.valo);
-    // }
+    const handleNameChange = e => {
+        setName(e.target.value);
+    }
 
 
     const handleEmailChange = e => {
@@ -57,15 +58,14 @@ const useFirebase = () => {
             return;
         }
 
-        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{6,}$/.test(password)) {
-            setError('password should be 6 charecter includes uppercase,lowercae,special sign and number')
-            return;
-        }
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
                 setError('');
+
+                saveUser(email,name);
+
                 verifyMail();
                 setUserName();
 
@@ -119,10 +119,30 @@ const useFirebase = () => {
 
 
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+const saveUser =(email,displayName)=>{
+    const user = {email,displayName}
+    fetch('http://localhost:5000/users',{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+        
+    })
+    .then()
+}
+
 
 
     return {
         user,
+        admin,
         error,
         logOut,
         isLoading,
@@ -131,7 +151,8 @@ const useFirebase = () => {
         setName,
         handlePasswordChange,
         handleEmailChange,
-        signInUsingGoogle
+        signInUsingGoogle,
+        handleNameChange
     }
 }
 

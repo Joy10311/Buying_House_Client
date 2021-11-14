@@ -14,9 +14,10 @@ const Home = () => {
     const { isLoading } = useAuth();
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/properties')
+        fetch('https://sheltered-sea-70251.herokuapp.com/properties')
             .then(res => res.json())
             .then(data => setProperties(data));
+            return[properties]
     }, []);
 
     if (isLoading) {
@@ -48,7 +49,7 @@ const Home = () => {
 
 
             {/* Features */}
-
+                    <h2 className="text-5xl font-semibold  text-center pt-10">Our Support Member</h2>
             <div className="grid lg:grid-cols-4  py-20 px-10 ">
 
                 <div className=" border-2 rounded-xl shadow-2xl lg:mr-5">

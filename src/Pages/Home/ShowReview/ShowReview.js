@@ -4,7 +4,7 @@ import SetShowReview from '../Review/SetShowReview/SetShowReview';
 const ShowReview = () => {
     const [reviews,setReviews] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/addReview')
+        fetch('https://sheltered-sea-70251.herokuapp.com/addReview')
         .then(res => res.json())
         .then(data => setReviews(data))
     },[])

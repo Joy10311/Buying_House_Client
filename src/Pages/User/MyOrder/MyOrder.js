@@ -8,7 +8,7 @@ const MyOrder = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/processOrders/${email}`)
+        fetch(`https://sheltered-sea-70251.herokuapp.com/processOrders/${email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])

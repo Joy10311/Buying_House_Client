@@ -13,17 +13,9 @@ const Header = () => {
                     <Link className="mx-10 lg:inline block" to="/home">Home</Link>
                     <Link className="mx-10 lg:inline block" to="/property">Property</Link>
                    
-                    {user?.email ?
-                        <Link className="mx-10 lg:inline block" to="/myOrder">My Order</Link>
-                        : ''
-                    }
-                    {user?.email ?
-                        <Link className="mx-10 lg:inline block" to="/allOrders">Manage All Orders</Link>
-                        : ''
-                    }
 
                     {user?.email ?
-                        <Link className="mx-10 lg:inline block" to="/addnew">Add New Service</Link>
+                        <Link className="mx-10 lg:inline block" to="/dashboard">Dashboard</Link>
                         : ''
                     }
                     <Link className="mx-10 lg:inline block" to="/about">About Us</Link>

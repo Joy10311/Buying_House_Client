@@ -10,7 +10,7 @@ const PropertyDetails = () => {
  
 // load single data
     useEffect(() => {
-        fetch(`http://localhost:5000/properties/${serviceId}`)
+        fetch(`https://sheltered-sea-70251.herokuapp.com/properties/${serviceId}`)
             .then(res => res.json())
             .then(data => setProperty(data))
     }, []);
@@ -40,7 +40,7 @@ const PropertyDetails = () => {
         delete newData?._id;
         
         // data.status = "pending";
-        fetch("http://localhost:5000/addOrders", {
+        fetch("https://sheltered-sea-70251.herokuapp.com/addOrders", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(newData),

@@ -6,7 +6,7 @@ const SetMyorders = ({ orders }) => {
     const handleDelete = id => {
         const proceed = window.confirm("Are You Sure? Want to delete")
         if (proceed) {
-            fetch(`http://localhost:5000/processOrders/${id}`, {
+            fetch(`https://sheltered-sea-70251.herokuapp.com/processOrders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

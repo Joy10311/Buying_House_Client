@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [manages, setManages] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/processOrders')
+        fetch('https://sheltered-sea-70251.herokuapp.com/processOrders')
             .then(res => res.json())
             .then(data => setManages(data))
     }, [])
@@ -24,5 +24,3 @@ const ManageAllOrders = () => {
 };
 
 export default ManageAllOrders;
-
-// http://localhost:5000/allorders
