@@ -1,7 +1,10 @@
 .background {
-  height: 100vh;
-
+  /* height: 100vh; */
   cursor: pointer;
+  position: relative;
+  /* top: 5px; */
+  bottom: 10px;
+  left: 0 px;
 }
 .dashboard {
   display: grid;

@@ -20,20 +20,21 @@ const Dashboard = () => {
             <div className="dashboard">
         <nav className=" -mt-10 left-0  text-xl font-medium ">
             <div className=" bg-gray-600 text-white background">
-               <ul><Link className=" lg:mx-10 mx-3  my-10 block" to={`${url}/myOrder`}>My Order</Link></ul>
-
-                <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/pay`}>Payment</Link></ul>
-                
-                <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/review`}>Rate Us</Link></ul>
+               
                
                 {
-                    admin && <div>
+                    admin ? <div>
                         <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/allOrders`}>Manage All Orders</Link></ul>
                <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/addNew`}>Add Property</Link></ul>
                  
                   <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/manageProperty`}>Manage Property</Link></ul>
                  
                   <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/makeAdmin`}>Make Admin</Link></ul>
+                    </div> : 
+                    <div>
+               <ul><Link className=" lg:mx-10 mx-3  my-10 block" to={`${url}/myOrder`}>My Order</Link></ul>
+                <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/pay`}>Payment</Link></ul> 
+                <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/review`}>Rate Us</Link></ul>
                     </div>
                 }
                 

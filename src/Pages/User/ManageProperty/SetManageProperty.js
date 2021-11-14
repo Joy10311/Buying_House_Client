@@ -6,7 +6,7 @@ const SetManageProperty = ({property}) => {
     const handleDelete = id => {
         const proceed = window.confirm("Are You Sure? Want to delete")
         if (proceed) {
-            fetch(`http://localhost:5000/properties/${id}`, {
+            fetch(`https://sheltered-sea-70251.herokuapp.com/properties/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
