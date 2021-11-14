@@ -55,7 +55,7 @@ const Review = () => {
         <input
           className="p-3 mb-3 bg-blue-700 text-white rounded-lg "
           type="submit"
-          value="Register"
+          value="Submit"
         />
       </form>
     </div>
