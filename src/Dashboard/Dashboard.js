@@ -6,7 +6,6 @@ import AddNewService from '../Pages/User/AddNewService/AddNewService';
 import MakeAdmin from '../Pages/User/MakeAdmin/MakeAdmin';
 import ManageAllOrders from '../Pages/User/ManageAllOrders/ManageAllOrders';
 import ManageProperty from '../Pages/User/ManageProperty/ManageProperty';
-import SetManageProperty from '../Pages/User/ManageProperty/SetManageProperty';
 import MyOrder from '../Pages/User/MyOrder/MyOrder';
 import Payment from '../Pages/User/Payment/Payment';
 import AdminRoute from './AdminRoute/AdminRoute';
@@ -14,18 +13,18 @@ import './Dashboard.css'
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const {user,admin,logOut} = useAuth();
+    const {admin,logOut} = useAuth();
     return (
-        <div className="">
+        <div>
             <div className="dashboard">
-        <nav className=" -mt-10 left-0  text-xl font-medium ">
-            <div className=" bg-gray-600 text-white background">
+        <div className=" -mt-10 left-0 text-xl   font-medium ">
+            <div className=" bg-green-600 text-white background">
                
                
                 {
                     admin ? <div>
-                        <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/allOrders`}>Manage All Orders</Link></ul>
-               <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/addNew`}>Add Property</Link></ul>
+                        <ul ><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/allOrders`}>Manage All Orders</Link></ul>
+               <ul ><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/addNew`}>Add Property</Link></ul>
                  
                   <ul><Link className="lg:mx-10 mx-3 my-10 block" to={`${url}/manageProperty`}>Manage Property</Link></ul>
                  
@@ -41,8 +40,8 @@ const Dashboard = () => {
                 <ul> <button onClick={logOut} className="bg-blue-300 text-base mx-3 rounded px-1 py-1 mr-2">Log Out</button></ul>
             </div>
             
-        </nav>
-        <div>
+        </div>
+        <div className="route">
                 <Switch>
                     <Route exact path={`${path}/pay`}>
                     <Payment></Payment>

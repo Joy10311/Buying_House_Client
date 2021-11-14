@@ -1,12 +1,19 @@
 .background {
-  /* height: 100vh; */
+  height: 100vh;
   cursor: pointer;
-  position: relative;
+  /* position: absolute; */
+  overflow: hidden;
   /* top: 5px; */
-  bottom: 10px;
+  /* bottom: 10px; */
   left: 0 px;
 }
 .dashboard {
   display: grid;
   grid-template-columns: 30% 70%;
+}
+
+.route {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 100vh;
 }

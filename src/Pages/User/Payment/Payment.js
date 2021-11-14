@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from '../../../images/coming.png'
 
 const Payment = () => {
     return (
-        <div>
-           <h1>Payment coming soon</h1> 
+        <div className="grid justify-center align-center">
+           <img width="500" src={logo} alt="" />
         </div>
     );
 };
